@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 // decorator (annotation in java)
 @Component({
@@ -10,12 +11,14 @@ import { Component, OnInit } from '@angular/core';
 export class WelcomeComponent implements OnInit {
 
   message = 'Welcome message'
+  name = ''
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     // compilation error: this.message = 10
     console.log(this.message)
+    this.name = this.route.snapshot.params['name']
   }
 
 }
