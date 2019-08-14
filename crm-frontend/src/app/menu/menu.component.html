@@ -2,12 +2,12 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div><a href="https://houarizegai.github.io" class="navbar-brand">Houari ZEGAI</a></div>
         <ul class="navbar-nav">
-            <li><a routerLink="/welcome/houarizegai" class="nav-link">Home</a></li>
-            <li><a routerLink="/customers" class="nav-link">Customers</a></li>
+            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/welcome/houarizegai" class="nav-link">Home</a></li>
+            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/customers" class="nav-link">Customers</a></li>
         </ul>
         <ul class="navbar-nav navbar-collapse justify-content-end">
-            <li><a routerLink="/login" class="nav-link">Login</a></li>
-            <li><a routerLink="/logout" class="nav-link">Logout</a></li>
+            <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
         </ul>
     </nav>
 </header>
