@@ -11,6 +11,11 @@ import { CustomersComponent } from './customers/customers.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
+// import some UI module
+import { AlertModule } from 'ngx-bootstrap';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,12 @@ import { LogoutComponent } from './logout/logout.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AlertModule.forRoot(), // Alert from ngx bootstrap module added
+    AngularFontAwesomeModule, // Font awesome module added
+    BrowserAnimationsModule, // required animations module added
+    ToastrModule.forRoot() // ToastrModule module added
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
