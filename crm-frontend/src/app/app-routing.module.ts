@@ -5,14 +5,15 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ErrorComponent } from './error/error.component';
 import { CustomersComponent } from './customers/customers.component';
 import { LogoutComponent } from './logout/logout.component';
+import { RouteGuardService } from './service/route-guard.service';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
+  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'welcome/:name', component: WelcomeComponent },
-  { path: 'customers', component: CustomersComponent},
-  { path: 'logout', component: LogoutComponent},
-  { path: '**', component: ErrorComponent}
+  { path: 'welcome/:name', component: WelcomeComponent, canActivate: [RouteGuardService] },
+  { path: 'customers', component: CustomersComponent, canActivate: [RouteGuardService] },
+  { path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService] },
+  { path: '**', component: ErrorComponent }
 ];
 
 @NgModule({

@@ -14,7 +14,7 @@
             <tr *ngFor="let customer of customers">
                 <td>{{customer.id}}</td>
                 <td>{{customer.name}}</td>
-                <td>{{customer.birthDate | date | uppercase}}</td> <!-- |: pipe (use to convert one field format to another format) -->
+                <td>{{customer.birthDate | date | uppercase}}</td> <!-- | : pipe (use to convert one field format to another format) -->
                 <td>{{customer.email}}</td>
             </tr>
         </tbody>

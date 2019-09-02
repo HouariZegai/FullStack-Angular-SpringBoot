@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  errorMessage = 'An error occured! contact support at: *** - ***'
+  errorMessage = 'An error occured! contact support at: support@houarizegai.net'
 
   constructor() { }
 
