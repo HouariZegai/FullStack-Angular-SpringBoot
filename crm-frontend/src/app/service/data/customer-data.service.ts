@@ -13,4 +13,8 @@ export class CustomerDataService {
     return this.http.get<Customer[]>(`http://localhost:8080/users/${username}/customers`);
   }
 
+  deleteCustomer(username, id) {
+    return this.http.delete(`http://localhost:8080/users/${username}/customers/${id}`);
+  }
+
 }
