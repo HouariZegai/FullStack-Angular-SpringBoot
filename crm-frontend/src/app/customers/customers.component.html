@@ -1,5 +1,7 @@
 <h1>Customers Manager</h1>
 <div class="container">
+    <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
     <table class="table">
         <thead>
             <tr>
@@ -7,6 +9,7 @@
                 <th>Name</th>
                 <th>Birth Date</th>
                 <th>Email</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +19,7 @@
                 <td>{{customer.name}}</td>
                 <td>{{customer.birthDate | date | uppercase}}</td> <!-- | : pipe (use to convert one field format to another format) -->
                 <td>{{customer.email}}</td>
+                <td><button (click)="deleteCustomer(customer.id)" class="btn btn-warning">Delete</button></td>
             </tr>
         </tbody>
     </table>
