@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerDataService } from '../service/data/customer-data.service';
 
 export class Customer {
   constructor(
@@ -16,16 +17,18 @@ export class Customer {
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
+  
+  customers: Customer[]
 
-  customers = [
-    new Customer(1, 'Houari', new Date(), 'admin@houarizegai.me'),
-    new Customer(2, 'Fatima', new Date(), 'fatima@houarizegai.me'),
-    new Customer(3, 'Fares', new Date(), 'fares@houarizegai.me'),
-  ]
-
-  constructor() { }
+  constructor(private service: CustomerDataService) { }
 
   ngOnInit() {
+    this.service.retrieveAllCustomers("houarizegai").subscribe(
+      response => {
+        console.log(response);
+        this.customers = response;
+      }
+    );
   }
 
 }
