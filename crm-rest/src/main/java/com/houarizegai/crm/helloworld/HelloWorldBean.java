@@ -1,4 +1,4 @@
-package com.houarizegai.crm.model;
+package com.houarizegai.crm.helloworld;
 
 public class HelloWorldBean {
     private String message;
