@@ -3,8 +3,9 @@
     Welcome {{name}}. You can manage the customers <a routerLink="/customers">here</a>
 </div>
 <div class="container">
-    Click here to get a customized welcome message
-    <button (click)="getWelcomeMessage()" class="btn btn-success">Get Welcome Message</button>
+    Click here to get a customized welcome message<br>
+    <button (click)="getWelcomeMessage()" class="btn btn-success">Get Welcome Message</button>&nbsp;
+    <button (click)="getWelcomeMessageWithPathVariable()" class="btn btn-success">Get Welcome Message With Path Variable</button>
 </div>
 
 <div class="container" *ngIf="welcomeMessageFromService">
