@@ -1,12 +1,30 @@
-<h1>Login</h1>
 <div class="container">
-    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
-
-    <div>
-        User name : <input type="text" name="username" [(ngModel)]="username">
-        Password  : <input type="password" name="password" [(ngModel)]="password">
-        <!--Username: {{username}}-->
-
-        <button class="btn btn-success" (click)=handleLogin()>Login</button>
+        <!-- <alert type="success">hello</alert> -->
+    <!-- <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div> -->
+    <div class="row justify-content-md-center mt-5">
+        <div class="col col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Login</h5>
+                    <!-- User name div  -->
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><fa name="user"></fa></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username :" [(ngModel)]="username">
+                    </div>
+                    <!-- Password div  -->
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><fa name="key"></fa></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Password" [(ngModel)]="password">
+                    </div>
+                    <br>
+                    <button class="btn btn-success " (click)=handleLogin()>Login</button>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    

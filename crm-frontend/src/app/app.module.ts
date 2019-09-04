@@ -14,6 +14,14 @@ import { LogoutComponent } from './logout/logout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 
+// import some UI module
+import { AlertModule } from 'ngx-bootstrap';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { ToastrModule } from 'ngx-toastr';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +38,11 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AlertModule.forRoot(), // Alert from ngx bootstrap module added
+    AngularFontAwesomeModule, // Font awesome module added
+    BrowserAnimationsModule, // required animations module added
+    ToastrModule.forRoot() // ToastrModule module added  
   ],
   providers: [],
   bootstrap: [AppComponent]
