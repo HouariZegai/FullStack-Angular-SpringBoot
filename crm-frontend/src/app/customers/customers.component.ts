@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerDataService } from '../service/data/customer-data.service';
+import { Router } from '@angular/router';
 
 export class Customer {
   constructor(
@@ -21,7 +22,7 @@ export class CustomersComponent implements OnInit {
   customers: Customer[]
   message: string
 
-  constructor(private service: CustomerDataService) { }
+  constructor(private service: CustomerDataService, private router: Router) { }
 
   ngOnInit() {
     this.retrieveAllCustomers();
@@ -34,6 +35,11 @@ export class CustomersComponent implements OnInit {
         this.customers = response;
       }
     );
+  }
+
+  updateCustomer(id) {
+    // console.log(`Update Customer ${id}`);
+    this.router.navigate(['customers', id]);
   }
 
   deleteCustomer(id) {

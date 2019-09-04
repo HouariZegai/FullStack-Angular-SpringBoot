@@ -6,6 +6,7 @@ import { ErrorComponent } from './error/error.component';
 import { CustomersComponent } from './customers/customers.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './service/route-guard.service';
+import { CustomerFormComponent } from './customer-form/customer-form.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'welcome/:name', component: WelcomeComponent, canActivate: [RouteGuardService] },
   { path: 'customers', component: CustomersComponent, canActivate: [RouteGuardService] },
   { path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService] },
+  { path: 'customers/:id', component: CustomerFormComponent, canActivate: [RouteGuardService] },
   { path: '**', component: ErrorComponent }
 ];
 
