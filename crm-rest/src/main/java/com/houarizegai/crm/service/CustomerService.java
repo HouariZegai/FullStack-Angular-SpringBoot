@@ -25,6 +25,18 @@ public class CustomerService {
         return customers;
     }
 
+    public Customer save(Customer customer) {
+        if(customer.getId() < 1) {
+            customer.setId(++idCounter);
+            customers.add(customer);
+        } else {
+            deleteById(customer.getId());
+            customers.add(customer);
+        }
+
+        return customer;
+    }
+
     public Customer deleteById(long id) {
         Customer customer = findById(id);
 
