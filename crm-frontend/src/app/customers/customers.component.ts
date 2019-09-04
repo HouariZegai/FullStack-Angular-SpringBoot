@@ -37,6 +37,10 @@ export class CustomersComponent implements OnInit {
     );
   }
 
+  addCustomer() {
+    this.router.navigate(['customers', -1]);
+  }
+
   updateCustomer(id) {
     // console.log(`Update Customer ${id}`);
     this.router.navigate(['customers', id]);

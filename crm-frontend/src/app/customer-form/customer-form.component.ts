@@ -18,19 +18,31 @@ export class CustomerFormComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
 
-    this.customer = new Customer(this.id, '', new Date(), '');
-    this.service.retrieveCustomer("houarizegai", this.id).subscribe(
-      response => this.customer = response
-    );
+    this.customer = new Customer(this.id, '', null, '');
+    if(this.id != -1)
+      this.service.retrieveCustomer("houarizegai", this.id).subscribe(
+        response => this.customer = response
+      );
   }
 
   onSave() {
-      this.service.updateCustomer("houarizegai", this.customer).subscribe(
-        response => {
-          console.log(response);
-          this.router.navigate(['customers']);
-        }
-      );
+      if(this.id == -1) {
+        // call create customer service
+        this.service.addCustomer("houarizegai", this.customer).subscribe(
+          response => {
+            console.log(response);
+            this.router.navigate(['customers']);
+          }
+        );
+      } else {
+        // call update customer service
+        this.service.updateCustomer("houarizegai", this.customer).subscribe(
+          response => {
+            console.log(response);
+            this.router.navigate(['customers']);
+          }
+        );
+      }
   }
 
 }
