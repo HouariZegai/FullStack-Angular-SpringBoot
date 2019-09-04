@@ -48,10 +48,10 @@ export class CustomersComponent implements OnInit {
         response => {
           console.log(response);
           this.message = `The customer ${id} has been deleted!`
+
+          this.retrieveAllCustomers(); // refresh customers
         }
       );
-
-      this.retrieveAllCustomers(); // refresh customers
   }
 
 }
