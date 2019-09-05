@@ -11,7 +11,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><fa name="user"></fa></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Username :" [(ngModel)]="username">
+                        <input type="text" class="form-control" placeholder="Type Username" [(ngModel)]="username">
                     </div>
                     <!-- Password div  -->
                     <br>
@@ -19,10 +19,10 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><fa name="key"></fa></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Password" [(ngModel)]="password">
+                        <input type="password" class="form-control" placeholder="Type Password" [(ngModel)]="password">
                     </div>
                     <br>
-                    <button class="btn btn-success " (click)=handleLogin()>Login</button>
+                    <button class="btn btn-success" (click)="handleLogin()">Login</button>
                 </div>
             </div>
         </div>

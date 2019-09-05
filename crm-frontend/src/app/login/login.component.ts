@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
 
-  username = 'houarizegai'
+  username = ''
   password = ''
   errorMessage = 'Invalid Credentials'
   invalidLogin = false
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['welcome', this.username]) 
     } else {
       this.invalidLogin = true;
-      this.toastr.error('Error','Operation failed', {
+      this.toastr.error('Error', this.errorMessage, {
         timeOut: 3000
       });
     }
