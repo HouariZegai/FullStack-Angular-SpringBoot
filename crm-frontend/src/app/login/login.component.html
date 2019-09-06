@@ -1,17 +1,17 @@
 <div class="container">
-        <!-- <alert type="success">hello</alert> -->
-    <!-- <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div> -->
     <div class="row justify-content-md-center mt-5">
         <div class="col col-md-8">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Login</h5>
+                    <form #form="ngForm" (submit)="handleLogin(form)">
                     <!-- User name div  -->
                     <div class="input-group flex-nowrap">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><fa name="user"></fa></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Type Username" [(ngModel)]="username">
+                        <input type="text" class="form-control" placeholder="Username " [(ngModel)]="username" required #UserName1="ngModel"  name="username">
+
                     </div>
                     <!-- Password div  -->
                     <br>
@@ -19,10 +19,28 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><fa name="key"></fa></span>
                         </div>
-                        <input type="password" class="form-control" placeholder="Type Password" [(ngModel)]="password">
+                        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" minlength="4" required #Password1="ngModel" name="password">
                     </div>
                     <br>
-                    <button class="btn btn-success" (click)="handleLogin()">Login</button>
+                      <div *ngIf="UserName1?.invalid && (Password1.dirty || UserName1.touched)" class="alert alert-danger">
+                          <div *ngIf="UserName1?.errors.required">
+                            Required username
+                          </div>
+                          <div *ngIf="UserName1?.errors.minlength">
+                            Username must be > 4 characters
+                          </div>
+                        </div>
+                      <div *ngIf="Password1.invalid && (Password1.dirty || Password1.touched)" class="alert alert-danger">
+                          <div *ngIf="Password1?.errors.required">
+                            The password is required
+                          </div>
+                          <div *ngIf="Password1?.errors.minlength">
+                            The password must be > 4 characters
+                          </div>
+                        </div>
+                    <br>
+                       <button class="btn btn-success " type="submit" [disabled]="Password1?.invalid || UserName1?.invalid">Login</button>
+                </form>
                 </div>
             </div>
         </div>
