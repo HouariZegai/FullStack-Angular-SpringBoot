@@ -11,6 +11,7 @@
                             <span class="input-group-text"><fa name="user"></fa></span>
                         </div>
                         <input type="text" class="form-control" placeholder="Username " [(ngModel)]="username" required #UserName1="ngModel"  name="username">
+
                     </div>
                     <!-- Password div  -->
                     <br>
@@ -18,7 +19,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><fa name="key"></fa></span>
                         </div>
-                        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" minlength="4" required #Password1="ngModel" name="password" (keyup.enter)="handleLogin(form)">
+                        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" minlength="4" required #Password1="ngModel" name="password">
                     </div>
                     <br>
                       <div *ngIf="UserName1?.invalid && (Password1.dirty || UserName1.touched)" class="alert alert-danger">
@@ -38,8 +39,8 @@
                           </div>
                         </div>
                     <br>
+                       <button class="btn btn-success " type="submit" [disabled]="Password1?.invalid || UserName1?.invalid">Login</button>
                 </form>
-                    <button class="btn btn-success " type="submit" [disabled]="Password1?.invalid || UserName1?.invalid" (click)="handleLogin(form)">Login</button>
                 </div>
             </div>
         </div>
