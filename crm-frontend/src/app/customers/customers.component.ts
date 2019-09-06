@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerDataService } from '../service/data/customer-data.service';
+import { ToastrService } from 'ngx-toastr';
 
 export class Customer {
   constructor(
@@ -21,7 +22,8 @@ export class CustomersComponent implements OnInit {
   customers: Customer[]
   message: string
 
-  constructor(private service: CustomerDataService) { }
+  constructor(private service: CustomerDataService,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.retrieveAllCustomers();
@@ -41,7 +43,10 @@ export class CustomersComponent implements OnInit {
       this.service.deleteCustomer("houarizegai", id).subscribe(
         response => {
           console.log(response);
-          this.message = `The customer ${id} has been deleted!`
+          this.toastr.success('Success','The customer has been deleted!', {
+            timeOut: 3000
+          });
+          
         }
       );
 
