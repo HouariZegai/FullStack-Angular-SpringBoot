@@ -4,6 +4,7 @@ import { HardcodedAuthenticationService } from '../service/hardcoded-authenticat
 import { ToastrService } from 'ngx-toastr';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { from } from 'rxjs';
+import { BasicAuthenticationService } from '../service/basic-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +18,13 @@ export class LoginComponent implements OnInit {
   errorMessage = 'Invalid Credentials'
   invalidLogin = false
   form: FormGroup;
+  
   // like this: Angular.giveMeRouter
   // dependency injection
   constructor(
     private router: Router, 
     private hardcodedAuthenticationService: HardcodedAuthenticationService,
+    private basicAuthenticationService: BasicAuthenticationService,
     private toastr: ToastrService
     ) { 
       this.form = new FormGroup({
@@ -39,10 +42,23 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['welcome', this.username]) 
     } else {
       this.invalidLogin = true;
-      this.toastr.error('Error', this.errorMessage, {
-        timeOut: 3000
-      });
+      this.toastr.error('Error', this.errorMessage, {timeOut: 3000});
     }
   }
-
+  
+  handleBasicAuthLogin(form: NgForm) {
+    this.basicAuthenticationService.executeAuthenticationService(this.username, this.password).subscribe(
+      data => {
+        console.log(data);
+        this.invalidLogin = false;
+        this.router.navigate(['welcome', this.username]) 
+      },
+      error => {
+        console.log(error);
+        this.invalidLogin = true;
+        this.toastr.error('Error', this.errorMessage, {timeOut: 3000});
+      }
+    );
+  }
 }
+

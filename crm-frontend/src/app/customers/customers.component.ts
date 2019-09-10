@@ -37,7 +37,7 @@ export class CustomersComponent implements OnInit {
   retrieveAllCustomers() {
     this.service.retrieveAllCustomers("houarizegai").subscribe(
       response => {
-        console.log(response);
+        // console.log(response);
         this.customers = response;
       }
     );
@@ -56,7 +56,7 @@ export class CustomersComponent implements OnInit {
       // console.log(`Delete customer ${id}`);
       this.service.deleteCustomer("houarizegai", id).subscribe(
         response => {
-          console.log(response);
+          // console.log(response);
           this.toastr.success('Success','The customer has been deleted!', {
             timeOut: 3000
           });         
