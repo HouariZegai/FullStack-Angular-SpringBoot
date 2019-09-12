@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class CustomerService {
     private static List<Customer> customers;
-    private static int idCounter = 0;
+    private static long idCounter = 0;
 
     static {
         customers = new LinkedList<>(Arrays.asList(
