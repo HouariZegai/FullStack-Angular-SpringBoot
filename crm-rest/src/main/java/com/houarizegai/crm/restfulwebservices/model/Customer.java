@@ -13,6 +13,10 @@ public class Customer {
     private Date birthDate;
     private String email;
 
+    public Customer() {
+
+    }
+
     public Customer(long id, String name, Date birthDate, String email) {
         this.id = id;
         this.name = name;
