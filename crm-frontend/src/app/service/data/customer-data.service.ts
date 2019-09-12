@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Customer } from 'src/app/customers/customers.component';
 import { API_URL } from 'src/app/app.constants';
-import { BasicAuthenticationService, TOKEN } from '../basic-authentication.service';
+import { BasicAuthenticationService } from '../basic-authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class CustomerDataService {
     return this.http.get<Customer[]>(`${API_URL}/users/${username}/customers`);
   }
 
-  retrieveCustomer(username, id: number) {
+  retrieveCustomer(username: string, id: number) {
     return this.http.get<Customer>(`${API_URL}/users/${username}/customers/${id}`);
   }
 
