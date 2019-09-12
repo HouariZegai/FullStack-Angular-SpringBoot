@@ -1,7 +1,7 @@
-package com.houarizegai.crm.controller;
+package com.houarizegai.crm.restfulwebservices.controller;
 
-import com.houarizegai.crm.model.Customer;
-import com.houarizegai.crm.service.CustomerService;
+import com.houarizegai.crm.restfulwebservices.model.Customer;
+import com.houarizegai.crm.restfulwebservices.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

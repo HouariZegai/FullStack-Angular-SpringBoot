@@ -1,6 +1,6 @@
-package com.houarizegai.crm.service;
+package com.houarizegai.crm.restfulwebservices.service;
 
-import com.houarizegai.crm.model.Customer;
+import com.houarizegai.crm.restfulwebservices.model.Customer;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;

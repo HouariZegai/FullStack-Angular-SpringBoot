@@ -1,4 +1,4 @@
-package com.houarizegai.crm.model;
+package com.houarizegai.crm.restfulwebservices.model;
 
 import java.util.Date;
 

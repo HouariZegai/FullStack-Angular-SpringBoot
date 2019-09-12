@@ -1,9 +1,9 @@
-package com.houarizegai.crm.model;
+package com.houarizegai.crm.restfulwebservices.helloworld;
 
-public class BasicAuthentication {
+public class HelloWorldBean {
     private String message;
 
-    public BasicAuthentication(String message) {
+    public HelloWorldBean(String message) {
         this.message = message;
     }
 
@@ -17,7 +17,7 @@ public class BasicAuthentication {
 
     @Override
     public String toString() {
-        return "BasicAuthentication{" +
+        return "HelloWorldBean{" +
                 "message='" + message + '\'' +
                 '}';
     }
